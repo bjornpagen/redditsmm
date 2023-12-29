@@ -239,7 +239,7 @@ func (c *Client) AddOrder(serviceId, link string, quantity int, options ...AddOr
 	return response.Order, err
 }
 
-// OrderStatus checks the status of a specific order by its integer ID.
+// OrderStatus checks the status of a specific order by its integer Id.
 func (c *Client) OrderStatus(orderId string) (OrderStatus, error) {
 	params := []param{
 		{"key", c.apiKey},
@@ -256,13 +256,13 @@ func (c *Client) OrderStatus(orderId string) (OrderStatus, error) {
 	return response, err
 }
 
-// MultipleOrdersStatus checks the status of multiple orders given their integer IDs.
+// MultipleOrdersStatus checks the status of multiple orders given their integer Ids.
 func (c *Client) MultipleOrdersStatus(orderIds []string) (map[string]OrderStatus, error) {
-	orderIDsString := strings.Join(orderIds, ",")
+	orderIdsString := strings.Join(orderIds, ",")
 	params := []param{
 		{"key", c.apiKey},
 		{"action", "status"},
-		{"orders", orderIDsString},
+		{"orders", orderIdsString},
 	}
 	data, err := c.post([]string{}, params)
 	if err != nil {
